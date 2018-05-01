@@ -9,8 +9,15 @@
     <li [class]="priorityColor(recipe)" *ngFor="let recipe of recipes">
       <h5 (click)="displayRecipe(recipe)" >{{recipe.title}}</h5> <button class="btn btn-primary" (click)="editRecipe(recipe)">Edit!</button>
       <ul *ngIf="showRecipe === recipe">
-        <li>Ingredients: {{recipe.ingredients}}</li>
-        <li>Directions: {{recipe.directions}}</li>
+        <li>Ingredients: </li>
+          <ul>
+            <li *ngFor="let ingredient of recipe.ingredients">{{ingredient}}</li>
+          </ul>
+        <li>Directions: </li>
+          <ol>
+            <li *ngFor="let instruction of recipe.directions">{{instruction}}</li>
+          </ol>
+        <li><img [src]="recipe.imgString"></li>
       </ul>
     </li>
   </ul>

@@ -10,9 +10,9 @@ import { Recipe } from './models/recipe.model';
 export class AppComponent {
   title = 'Recipe Box';
   recipes: Recipe[] = [
-    new Recipe('Cake', ['flour', ' butter', ' sugar'], ['mix', ' bake'], 3),
-    new Recipe('Smoothie', ['fruit', ' yogurt'], ['put in blender',' blend'], 2),
-    new Recipe('Cereal', ['cereal', ' milk'], ['put in bowl'], 1)
+    new Recipe('Cake', ['flour', ' butter', ' sugar'], ['mix', ' bake'], 3, "./../assets/cake.jpg"),
+    new Recipe('Smoothie', ['fruit', ' yogurt'], ['put in blender',' blend'], 2, "./../assets/smoothie.jpg"),
+    new Recipe('Cereal', ['cereal', ' milk'], ['put in bowl'], 1, "./../assets/cereal.jpg")
   ];
 
   selectedRecipe = null;
