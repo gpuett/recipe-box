@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+//import { Recipe } from './recipe/recipe.component';
+import { Recipe } from './models/recipe.model';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,35 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'Recipe Box';
+  recipes: Recipe[] = [
+    new Recipe('Cake', ['flour', ' butter', ' sugar'], ['mix', ' bake'], 3),
+    new Recipe('Smoothie', ['fruit', ' yogurt'], ['put in blender',' blend'], 2),
+    new Recipe('Cereal', ['cereal', ' milk'], ['put in bowl'], 1)
+  ];
+
+  selectedRecipe = null;
+  showRecipe = null;
+  priorityColor(recipe) {
+    if (recipe.priority === 3) {
+      return "bg-danger";
+    } else if (recipe.priority === 2) {
+      return "bg-warning";
+    } else {
+      return "bg-info";
+    }
+  }
+
+  displayRecipe(recipe) {
+    this.showRecipe = recipe;
+  }
+
+  finishedEditing() {
+    this.selectedRecipe = null;
+  }
+
+  editRecipe(clickedRecipe) {
+    this.selectedRecipe = clickedRecipe;
+  }
+
 }
