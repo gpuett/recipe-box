@@ -21,11 +21,11 @@
       </ul>
     </li>
     <li class="bg-success">
-      <button type="button" class="btn btn-light" name="button" (click)="displayAddRecipe()">Add recipe</button>
+      <button *ngIf="!addRecipe" type="button" class="btn btn-light" name="button" (click)="displayAddRecipe()">Add recipe</button>
       <div *ngIf="addRecipe">
         <input class="form-control" type="text" [(ngModel)]="recipeName" placeholder="Title"><br>
         <input class="form-control" type="text" [(ngModel)]="ingredients" placeholder="Ingredients separated by commas"><br>
-        <input class="form-control" type="text" [(ngModel)]="directions" placeholder="Directions separated by commas">
+        <input class="form-control" type="text" [(ngModel)]="directions" placeholder="Directions separated by commas"><br>
         <button type="button" class="btn btn-light" (click)="submitRecipe(recipeName, ingredients, directions)" name="button">Submit recipe</button>
 
           <p>{{recipeName}}</p>
