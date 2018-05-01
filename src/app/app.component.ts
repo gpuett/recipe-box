@@ -17,6 +17,7 @@ export class AppComponent {
 
   selectedRecipe = null;
   showRecipe = null;
+  addRecipe = false;
   priorityColor(recipe) {
     if (recipe.priority === 3) {
       return "bg-danger";
@@ -37,6 +38,16 @@ export class AppComponent {
 
   editRecipe(clickedRecipe) {
     this.selectedRecipe = clickedRecipe;
+  }
+
+  displayAddRecipe() {
+    this.addRecipe = true;
+  }
+
+  submitRecipe(recipeName, ingredients, directions) {
+    let newRecipe = new Recipe(recipeName, ingredients.split(','), directions.split(','), 3, "./../assets/cake.jpg");
+    this.recipes.push(newRecipe);
+    this.addRecipe = false;
   }
 
 }
